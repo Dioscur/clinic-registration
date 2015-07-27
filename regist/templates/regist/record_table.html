@@ -1,0 +1,53 @@
+{% extends "regist/base.html" %}
+
+{% block content %}
+    <div>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td><b>#</b></td>
+                <td><b>Medic</b></td>
+                <td><b>Visitor first name</b></td>
+                <td><b>Visitor last name</b></td>
+                <td><b>Visit date</b></td>
+                <td><b>Visit time</b></td>
+                <td><b>Created date</b></td>
+                <td><b>Edit</b></td>
+            </tr>
+            {% for record in records %}
+                <tr>
+                    <td><b>{{record.id}}</b></td>
+                    <td>{{record}}</td>
+                    <td>{{record.visitor_first_name}}</td>
+                    <td>{{record.visitor_last_name}}</td>
+                    <td>{{record.record_date}}</td>
+                    <td>{{record.record_time}}</td>
+                    <td>{{record.created_date}}</td>
+                    <td><a class="btn btn-default" href="{% url "regist.views.record_edit" pk=record.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+
+    <button type="button" class="btn btn-default" onclick="btn_click(this)">BUTTON</button>
+    <button type="button" class="btn btn-danger" onclick="modal.show();modal.setTitle('Hello');modal.setBody('Hello world')">Modal</button>
+
+
+
+    <div id="modal_form" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Clinic Registration</title>
+        <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "css/bootstrap-theme.min.css" %}">
+        <link rel="stylesheet" href="{% static "css/style.css" %}">
+        <script src="{% static "js/jquery-2.1.4.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/script.js" %}"></script>
+    </head>
+
+    <body>
+        <div class="page-header">
+            <a href="{% url "regist.views.record_form" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <h1><a href="/">Clinic Registration</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-10">
+
+                    {% block content %}
+                    {% endblock %}
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
